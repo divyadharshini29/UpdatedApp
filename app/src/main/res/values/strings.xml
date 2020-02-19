@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Receipt Sorter</string>
+    <string name="facebook_app_id">2880386375350781</string>
+    <string name="fb_login_protocol_scheme">fb2880386375350781</string>
+    <string name="FnameError">Please Enter First Name</string>
+    <string name="LnameError">Please Enter Last Name</string>
+    <string name="Email">Please Enter Email</string>
+    <string name="Password">Please Enter Password</string>
+    <string name="ConfrimPwd">Password Doesn\'t Match</string>
+
+
+    <!--    <string name="login">-->
+<!--        <a href="#login">Login</a>-->
+<!--    </string>-->
+    <string name="link">Already have account?<i><u><b><font color="blue">Login</font></b></u></i></string>
+
+</resources>
