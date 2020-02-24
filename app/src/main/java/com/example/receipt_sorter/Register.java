@@ -121,7 +121,7 @@ public class Register extends AppCompatActivity {
         startActivity(i);
     }
     public void UpdateUI() {
-        fname = (EditText) findViewById(R.id.FTxt);
+        fname =findViewById(R.id.FTxt);
         lname = findViewById(R.id.LText);
         password = findViewById(R.id.pwdText);
         confirm=findViewById(R.id.confText);
@@ -142,8 +142,8 @@ public class Register extends AppCompatActivity {
                 if(awesomeValidation.validate())
                 {
                     Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(Register.this, MainActivity.class);
-                  startActivity(i);
+                    Intent i = new Intent(Register.this, MainActivity.class);
+                    startActivity(i);
                 }
                 else
                 {
