@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.text.ParseException;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -28,6 +29,8 @@ public class Register extends AppCompatActivity {
     private EditText date;
     private Button register;
     private Button cancel;
+    private  Date d;//convert edit text to date format to save in user;
+    private UserDataSharedPreference userDataSharedPreference;
 
     AwesomeValidation awesomeValidation;
     private DatePickerDialog mDatePickerDialog;
@@ -37,6 +40,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        userDataSharedPreference=new UserDataSharedPreference(this);
 
         setDateTimeField();
         date =findViewById(R.id.DateText);
@@ -71,51 +75,7 @@ public class Register extends AppCompatActivity {
 
     }
 
-    //FUNCTION FOR VALIDATION ,NOW REPLACED WITH AWESOME VALIDATION
-//    public void validate(View view) {
-//        int valid = 1;
-//        if (fname.getText().toString().isEmpty()) {
-//            Toast.makeText(getApplicationContext(), "Please Enter First Name", Toast.LENGTH_SHORT).show();
-//            valid = 0;
-//        }
-//         if (fname.getText().toString().length() < 3) {
-//            Toast.makeText(getApplicationContext(), "Name should be atleast 3 letters ", Toast.LENGTH_SHORT).show();
-//            valid = 0;
-//
-//        }
-//         if (fname.getText().toString().length() > 30) {
-//            Toast.makeText(getApplicationContext(), "Name should not be greater than 30 letters ", Toast.LENGTH_SHORT).show();
-//            valid = 0;
-//
-//        }
-//         if (lname.getText().toString().isEmpty()) {
-//            Toast.makeText(getApplicationContext(), "Please Enter Last Name", Toast.LENGTH_SHORT).show();
-//            valid = 0;
-//            return;
-//        }
-//         if (email.getText().toString().isEmpty()) {
-//            Toast.makeText(Register.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
-//            valid = 0;
-//            return;
-//        }
-//         if (password.getText().toString().isEmpty()) {
-//            Toast.makeText(getApplicationContext(), "Please Enter Password", Toast.LENGTH_SHORT).show();
-//            valid = 0;
-//            return;
-//        }
-//         if (date.getText().toString().isEmpty()) {
-//            Toast.makeText(getApplicationContext(), "Please Select Birthday Date", Toast.LENGTH_SHORT).show();
-//            valid = 0;
-//            return ;
-//        }
-//        if (valid == 1) {
-//            Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-//            Intent i = new Intent(Register.this, MainActivity.class);
-//            startActivity(i);
-//
-//        }
-//    }
-//
+
     public void Cancel(View view) {
         Intent i = new Intent(Register.this, MainActivity.class);
         startActivity(i);
@@ -127,6 +87,15 @@ public class Register extends AppCompatActivity {
         confirm=findViewById(R.id.confText);
         email = findViewById(R.id.EmailText);
         register=findViewById(R.id.RegisterBtn);
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");//format
+
+        try {
+           d = format.parse(date.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
           //Add Validation using Awesome validation
         awesomeValidation.addValidation(Register.this,R.id.FTxt,"[a-zA-Z\\s]+",R.string.FnameError);
@@ -141,14 +110,19 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 if(awesomeValidation.validate())
                 {
-                    Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(Register.this, MainActivity.class);
-                    startActivity(i);
+                    User user=new User(fname.getText().toString(),lname.getText().toString(),d,email.getText().toString(),password.getText().toString());
+                    boolean create=userDataSharedPreference.writeData(user);
+                    if(create) {
+                        Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(Register.this, MainActivity.class);
+                        startActivity(i);
+                    }
+                    else
+                    {
+                        Toast.makeText(Register.this, "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else
-                {
-                    Toast.makeText(Register.this, "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
-                }
+
 
             }
         });

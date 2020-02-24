@@ -31,7 +31,9 @@
         android:layout_height="6dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/LLabel"
