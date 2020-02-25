@@ -29,17 +29,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.login_button);
         //Set text and link in Text view
         login = findViewById(R.id.login);
         login.setText(R.string.link);
+                                                        // changed AppMainPage.class to Login
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, AppMainPage.class);
+                Intent i = new Intent(MainActivity.this, Login.class);
                 startActivity(i);
-
             }
         });
 
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        // Andleeb
+
 
         // loginButton.setReadPermissions(Arrays.asList(EMAIL));
         // If you are using in a fragment, call loginButton.setFragment(this);

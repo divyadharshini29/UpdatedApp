@@ -10,7 +10,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="33dp"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:fontFamily="@font/bungee_inline"
         android:text="Sign Up"
@@ -21,94 +21,110 @@
     <TextView
         android:id="@+id/FLabel"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="3dp"
         android:layout_weight="1"
         android:text="First Name" />
 
     <EditText
         android:id="@+id/FTxt"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="3dp"
         android:layout_weight="1"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="-8dp"
         android:ems="10"
         android:inputType="textPersonName"
-
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/LLabel"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="3dp"
         android:layout_weight="1"
         android:text="Last Name" />
 
     <EditText
         android:id="@+id/LText"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="5dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="-8dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/DateLbl"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="3dp"
         android:layout_weight="1"
         android:text="Date Of Birth" />
 
     <EditText
         android:id="@+id/DateText"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="12dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="-8dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/EmailLabel"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="3dp"
         android:layout_weight="1"
         android:text="E-mail" />
 
     <EditText
         android:id="@+id/EmailText"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="12dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="-8dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/PwdLabel"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="3dp"
         android:layout_weight="1"
         android:text="Password" />
 
     <EditText
         android:id="@+id/pwdText"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="12dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="-8dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/confLabel"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="3dp"
         android:layout_weight="1"
         android:text="Confirm Password" />
 
     <EditText
         android:id="@+id/confText"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="12dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="-8dp"
+        android:textColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -151,6 +167,5 @@
             android:layout_weight="1" />
 
     </LinearLayout>
-
 
 </LinearLayout>

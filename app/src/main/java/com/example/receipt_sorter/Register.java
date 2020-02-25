@@ -75,7 +75,6 @@ public class Register extends AppCompatActivity {
 
     }
 
-
     public void Cancel(View view) {
         Intent i = new Intent(Register.this, MainActivity.class);
         startActivity(i);
